@@ -1,7 +1,6 @@
 import pygame as pg
 import sys
 import time
-
 import game_objects
 
 pg.init()
@@ -28,7 +27,7 @@ class Player(pg.sprite.Sprite):
     def __init__(self, screen, *groups):
         pg.sprite.Sprite.__init__(self)
         self.image = pg.image.load("viking.png").convert_alpha()
-        self.image = pg.transform.scale(self.image, (116, 121))
+        self.image = pg.transform.scale(self.image, (116/2, 121/2))
         self.rect = self.image.get_rect()
         self.screen = screen
         self.rect.y = self.screen.get_size()[1]
@@ -36,7 +35,7 @@ class Player(pg.sprite.Sprite):
     def update(self):
         # handles movement of the player,
         # dist is the pixel distance moved when the method is called
-        dist = 1
+        dist = 2
         x = self.rect.x
         keys = pg.key.get_pressed()
         if keys[pg.K_w]:
